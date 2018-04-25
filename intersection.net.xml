@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<net version="0.27" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,1000.00,0.00" origBoundary="10000000000.00,10000000000.00,-10000000000.00,-10000000000.00" projParameter="!"/>
+
+    <edge id=":2_0" function="internal">
+        <lane id=":2_0_0" index="0" speed="13.89" length="0.10" shape="500.00,-1.65 500.00,-1.65"/>
+    </edge>
+
+    <edge id="way1" from="1" to="2" priority="1">
+        <lane id="way1_0" index="0" speed="13.89" length="500.00" shape="0.00,-1.65 500.00,-1.65"/>
+    </edge>
+    <edge id="way2" from="2" to="3" priority="1">
+        <lane id="way2_0" index="0" speed="13.89" length="500.00" shape="500.00,-1.65 1000.00,-1.65"/>
+    </edge>
+
+    <tlLogic id="2" type="static" programID="0" offset="0">
+        <phase duration="59" state="r"/>
+        <phase duration="30" state="G"/>
+        <phase duration="3" state="y"/>
+		<phase duration="27" state="r"/>
+    </tlLogic>
+
+    <junction id="1" type="dead_end" x="0.00" y="0.00" incLanes="" intLanes="" shape="0.00,-0.05 0.00,-3.25"/>
+    <junction id="2" type="traffic_light" x="500.00" y="0.00" incLanes="way1_0" intLanes=":2_0_0" shape="500.00,-0.05 500.00,-3.25 500.00,-0.05">
+        <request index="0" response="0" foes="0" cont="0"/>
+    </junction>
+    <junction id="3" type="dead_end" x="1000.00" y="0.00" incLanes="way2_0" intLanes="" shape="1000.00,-3.25 1000.00,-0.05"/>
+
+    <connection from="way1" to="way2" fromLane="0" toLane="0" via=":2_0_0" tl="2" linkIndex="0" dir="s" state="o"/>
+
+    <connection from=":2_0" to="way2" fromLane="0" toLane="0" dir="s" state="M"/>
+
+</net>
