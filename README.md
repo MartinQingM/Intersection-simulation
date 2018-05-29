@@ -1,5 +1,5 @@
-# SUMO-Matlab-intersection_simulation
-Trying to build a intersection assistant driving system simulation based on SUMO and TraCI4Matlab
+# Intersection-simulation
+Trying to build a trafic intersection assistant driving system simulation based on SUMO and TraCI4Matlab
 
 To run this simple simulation, you need to install the following software:
 
