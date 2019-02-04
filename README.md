@@ -1,6 +1,8 @@
 # Intersection-simulation
 Trying to build a trafic intersection assistant driving system simulation based on SUMO and TraCI4Matlab
 
+Sorry for all the notations are in Chinese, have't got the time to do the translation.
+
 To run this simple simulation, you need to install the following software:
 
 * Matlab2016a;
@@ -21,4 +23,3 @@ run **intersection.m** to start.
 
 You can consider this as a tutorial of Traci4Matlab ^ ^
 
-Still in progress...
