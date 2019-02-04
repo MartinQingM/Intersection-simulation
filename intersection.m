@@ -2,66 +2,67 @@ clear
 close all
 clc
 import traci.constants
-system(['sumo-gui -c ' './intersection.sumocfg &']);%½«mÎÄ¼ş·ÅÖÁsumocfgÎÄ¼şÍ¬ÎÄ¼ş¼ĞÏÂ
+system(['sumo-gui -c ' './intersection.sumocfg &']);%å°†mæ–‡ä»¶æ”¾è‡³sumocfgæ–‡ä»¶åŒæ–‡ä»¶å¤¹ä¸‹
 
-unitchange = @(x) x*3600/1000; %±äµ¥Î»´Óm/sµ½km/h
-clock = 0;  %¼ÆÊ±Æ÷
+unitchange = @(x) x*3600/1000; %å˜å•ä½ä»m/såˆ°km/h
+clock = 0;  %è®¡æ—¶å™¨
 a=0;
-traci.init();%³õÊ¼»¯½Ó¿Ú
+traci.init();%åˆå§‹åŒ–æ¥å£
 Tidb = [];
 s = [];
-f = [];%½ÓÊÕÀÛ¼ÓµÄÓÍºÄ²ÎÊı
-d = [];%½ÓÊÕ¾àÀë²ÎÊı
-while traci.simulation.getMinExpectedNumber()>0 %ÎŞ³µÁ¾Ê±½áÊø
+f = [];%æ¥æ”¶ç´¯åŠ çš„æ²¹è€—å‚æ•°
+d = [];%æ¥æ”¶è·ç¦»å‚æ•°
+while traci.simulation.getMinExpectedNumber()>0 %æ— è½¦è¾†æ—¶ç»“æŸ
     traci.simulationStep();
     
     ID = traci.vehicle.getIDList();
-    if ~isempty(strfind(ID, 'veh0')); %³µÁ¾ÁĞ±íÖĞÓĞveh0Ê±¿ªÊ¼
+    if ismember('veh0',ID)ï¼› %è½¦è¾†åˆ—è¡¨ä¸­æœ‰veh0æ—¶å¼€å§‹
+%    if ~isempty(strfind(ID, 'veh0')); 
         
 %         idb_arrived = traci.vehicle.getDistance('veh0');
 %         if idb_arrived >= 400
 %             a=1;
 %             Tidb = clock;
 %         end
-        fuel = [f,traci.vehicle.getFuelConsumption('veh0')];%°ÑÃ¿stepÓÍºÄ¼ÓÈëÊı×é
+        fuel = [f,traci.vehicle.getFuelConsumption('veh0')];%æŠŠæ¯stepæ²¹è€—åŠ å…¥æ•°ç»„
         f = fuel;
-        Distance = [d,traci.vehicle.getDistance('veh0')];%°ÑÃ¿step¾àÀë¼ÓÈëÊı×é
+        Distance = [d,traci.vehicle.getDistance('veh0')];%æŠŠæ¯stepè·ç¦»åŠ å…¥æ•°ç»„
         d = Distance;
         current_speed_veh0 = traci.vehicle.getSpeed('veh0');
         
         current_speed_veh0 = unitchange(current_speed_veh0);
-        Speed = [ s,current_speed_veh0];%°ÑÃ¿stepËÙ¶È¼ÓÈëÊı×é
+        Speed = [ s,current_speed_veh0];%æŠŠæ¯stepé€Ÿåº¦åŠ å…¥æ•°ç»„
         s = Speed;
     else
     end
     clock = clock +1;
 end
 
-traci.close()%¹Ø±Õ½Ó¿Ú
+traci.close()%å…³é—­æ¥å£
 
 figure(1);
 plot(Speed,'r','LineWidth',1);ylim([0 60]);grid on;
-xlabel('Ê±¼ä');
-ylabel('ËÙ¶Èkm/h');
-legend('ËÙ¶È');
+xlabel('æ—¶é—´');
+ylabel('é€Ÿåº¦km/h');
+legend('é€Ÿåº¦');
 
 figure(2);
 plot(Distance,fuel,'r','LineWidth',1);xlim([0 700]);ylim([0 7]);grid on;
-xlabel('¾àÀë');
-ylabel('Ë²Ê±ÓÍºÄ/ml');
-legend('ÓÍºÄ');
+xlabel('è·ç¦»');
+ylabel('ç¬æ—¶æ²¹è€—/ml');
+legend('æ²¹è€—');
 
 figure(3);
 plot(Distance,Speed,'r','LineWidth',1);ylim([0 60]);grid on;
-xlabel('¾àÀë');
-ylabel('ËÙ¶Èkm/h');
-legend('ËÙ¶È');
+xlabel('è·ç¦»');
+ylabel('é€Ÿåº¦km/h');
+legend('é€Ÿåº¦');
 
 % Time = 2:clock;
 % figure(4);
 % plot(Time,Distance,'r','LineWidth',1);ylim([0 100]);grid on;
-% xlabel('¾àÀë');
-% ylabel('ËÙ¶Èkm/h');
-% legend('ËÙ¶È');
+% xlabel('è·ç¦»');
+% ylabel('é€Ÿåº¦km/h');
+% legend('é€Ÿåº¦');
 
 Sumfuel = sum(fuel)
