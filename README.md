@@ -17,11 +17,9 @@ You can have the following results:
 
 Here are some example of the figure:
 
-<div align=center><img width="400" height="150" src=""/></div>
 <div align=center><img width="400" src="https://github.com/OriginPower/Intersection-simulation/blob/master/image/1.png"/></div>
-![image](https://github.com/OriginPower/Intersection-simulation/blob/master/image/1.png)
-![image](https://github.com/OriginPower/Intersection-simulation/blob/master/image/2.png)
-![image](https://github.com/OriginPower/Intersection-simulation/blob/master/image/3.png)
+<div align=center><img width="400" src="https://github.com/OriginPower/Intersection-simulation/blob/master/image/2.png"/></div>
+<div align=center><img width="400" src="https://github.com/OriginPower/Intersection-simulation/blob/master/image/3.png"/></div>
 
 Here are some useful websites.
 * [SUMO Official Document](http://sumo.dlr.de/wiki/Simulation_of_Urban_MObility_-_Wiki)
