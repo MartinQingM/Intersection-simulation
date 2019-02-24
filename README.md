@@ -15,6 +15,12 @@ You can have the following results:
 * A realtime Speed-Distance graph;
 * A realtime Fuelconsumption-Distance graph;
 
+Here are some example of the figure:
+
+![image](https://github.com/OriginPower/Intersection-simulation/blob/master/image/1.png)
+![image](https://github.com/OriginPower/Intersection-simulation/blob/master/image/2.png)
+![image](https://github.com/OriginPower/Intersection-simulation/blob/master/image/3.png)
+
 Here are some useful websites.
 * [SUMO Official Document](http://sumo.dlr.de/wiki/Simulation_of_Urban_MObility_-_Wiki)
 * [TraCI4Matlab](https://ww2.mathworks.cn/matlabcentral/fileexchange/44805-traci4matlab)
